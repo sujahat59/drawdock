@@ -6,4 +6,4 @@ An AI whiteboard for developers. Draw a system, click Review, and get architectu
 
 ## Docs
 - [Product Requirements](docs/PRD.md)
-- [Glossary](docs/glossary.md)
+
