@@ -1,5 +1,8 @@
 import { Tldraw, useEditor } from 'tldraw'
 import 'tldraw/tldraw.css'
+import { useState, useEffect } from 'react'
+import { supabase } from './lib/supabase'
+import Login from './components/Login'
 
 function ReviewButton() {
   const editor = useEditor()
@@ -42,6 +45,26 @@ function ReviewButton() {
 }
 
 export default function App() {
+  const [session, setSession] = useState(null)
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    supabase.auth.getSession().then(({ data: { session } }) => {
+      setSession(session)
+      setLoading(false)
+    })
+
+    const { data: { subscription } } = supabase.auth.onAuthStateChange(
+      (_event, session) => setSession(session)
+    )
+
+    return () => subscription.unsubscribe()
+  }, [])
+
+  if (loading) return null
+
+  if (!session) return <Login />
+
   return (
     <div style={{ position: 'fixed', inset: 0 }}>
       <Tldraw>
