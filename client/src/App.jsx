@@ -56,7 +56,7 @@ function Canvas({ session }) {
     })
 
     const data = await response.json()
-    alert(data.message)
+    alert(data.suggestions)
   }
 
   async function handleSignOut() {
