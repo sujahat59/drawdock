@@ -35,7 +35,7 @@ export default function ReviewPanel({ result, loading, onClose }) {
         {result && !loading && (
           <div style={styles.suggestions}>
             <div style={styles.sectionLabel}>
-              {result.sources?.length} sources · {result.suggestions?.split('\n').filter(s => s.trim()).length} suggestions
+              {result.sources?.length} sources
             </div>
 
             <div style={styles.suggestionText}>
