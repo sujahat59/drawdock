@@ -49,7 +49,7 @@ function Canvas({ session, onPanelChange }) {
 
     try {
       const snapshot = editor.getSnapshot()
-      const response = await fetch('http://localhost:3001/api/review', {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/api/review`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ canvas: snapshot })
