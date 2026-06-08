@@ -140,7 +140,9 @@ export default function App() {
       right: panelOpen ? '420px' : '0',
       transition: 'right 0.2s ease'
     }}>
-      <Tldraw>
+      <Tldraw
+       licenseKey={import.meta.env.VITE_TLDRAW_LICENSE_KEY}
+      >
         <Canvas session={session} onPanelChange={setPanelOpen} />
       </Tldraw>
     </div>
