@@ -13,7 +13,7 @@ export default function Login() {
     const { error } = await supabase.auth.signInWithOtp({
       email,
       options: {
-        emailRedirectTo: 'http://localhost:5173'
+        emailRedirectTo: 'https://drawdock-green.vercel.app'
       }
     })
 
