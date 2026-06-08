@@ -1,3 +1,5 @@
+import ReactMarkdown from 'react-markdown'
+
 export default function ReviewPanel({ result, loading, onClose }) {
   if (!loading && !result) return null
 
@@ -37,7 +39,7 @@ export default function ReviewPanel({ result, loading, onClose }) {
             </div>
 
             <div style={styles.suggestionText}>
-              {result.suggestions}
+              <ReactMarkdown>{result.suggestions}</ReactMarkdown>
             </div>
 
             {/* Sources */}
